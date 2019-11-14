@@ -1,0 +1,81 @@
+<template>
+  <div class="team">
+    <div class="card" :key="index" v-for="(person, index) in teams">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img :src="person.photo" alt="Placeholder image" />
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img :src="person.thumbs" alt="Placeholder image" />
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">{{ person.name }}</p>
+            <p class="subtitle is-6">{{ person.mail }}</p>
+          </div>
+        </div>
+
+        <div class="content">
+          {{ person.description }}
+          <a href="" :key="index" v-for="(hastag, index) in person.hastags">
+           #{{ hastag }}
+          </a>
+          <br />
+          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "team",
+  data() {
+    return {
+      teams: [
+        {
+          name: "Aurore",
+          mail: "aurore@google.com",
+          photo: "https://picsum.photos/id/866/200/300",
+          thumbs: "https://picsum.photos/id/215/200/300",
+          description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Phasellus nec iaculis mauris.`,
+          hastags: ["test", "ok", "vuejs"]
+        },
+        {
+          name: "Richard",
+          mail: "richard@google.com",
+          photo: "https://picsum.photos/id/869/200/300",
+          thumbs: "https://picsum.photos/id/214/200/300",
+          description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Phasellus nec iaculis mauris.`,
+          hastags: ["test", "react", "angular"]
+        },
+        {
+          name: "George",
+          mail: "george@google.com",
+          photo: "https://picsum.photos/id/868/200/300",
+          thumbs: "https://picsum.photos/id/212/200/300",
+          description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Phasellus nec iaculis mauris.`,
+          hastags: ["test", "python", "php"]
+        }
+      ]
+    };
+  }
+};
+</script>
+<style lang="scss">
+.team{
+    display: flex;
+    flex-wrap: wrap;
+        justify-content: space-around;
+    .card{
+      width: 30%;
+    }
+}
+</style>
