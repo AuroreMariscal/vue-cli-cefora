@@ -25,6 +25,8 @@
            #{{ hastag }}
           </a>
           <br />
+          <span class="salary">Salary : {{ person.salary | price}} €</span>
+          <br />
           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
         </div>
       </div>
@@ -33,6 +35,7 @@
 </template>
 <script>
 import Capitalize from '@/filters/Capitalize'
+import PriceFormat from '@/filters/PriceFormat'
 
 export default {
   name: "team",
@@ -46,7 +49,8 @@ export default {
           thumbs: "https://picsum.photos/id/215/200/300",
           description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Phasellus nec iaculis mauris.`,
-          hastags: ["test", "ok", "vuejs"]
+          hastags: ["test", "ok", "vuejs"],
+          salary: 1600.9187,
         },
         {
           name: "richard",
@@ -55,7 +59,8 @@ export default {
           thumbs: "https://picsum.photos/id/214/200/300",
           description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Phasellus nec iaculis mauris.`,
-          hastags: ["test", "react", "angular"]
+          hastags: ["test", "react", "angular"],
+          salary: "1342.9187",
         },
         {
           name: "george",
@@ -64,13 +69,15 @@ export default {
           thumbs: "https://picsum.photos/id/212/200/300",
           description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Phasellus nec iaculis mauris.`,
-          hastags: ["test", "python", "php"]
+          hastags: ["test", "python", "php"],
+          salary: "1690.9187",
         }
       ]
     };
   },
   filters: {
     cap: Capitalize,
+    price: PriceFormat,
   },
 };
 </script>
