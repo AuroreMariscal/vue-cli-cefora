@@ -82,5 +82,9 @@ export default {
     .card{
       width: 30%;
     }
+    .media-left figure.image img{
+      border-radius: 50%;
+      height: 100%;
+    }
 }
 </style>
