@@ -14,7 +14,7 @@
             </figure>
           </div>
           <div class="media-content">
-            <p class="title is-4">{{ person.name }}</p>
+            <p class="title is-4">{{ person.name | cap }}</p>
             <p class="subtitle is-6">{{ person.mail }}</p>
           </div>
         </div>
@@ -32,13 +32,15 @@
   </div>
 </template>
 <script>
+import Capitalize from '@/filters/Capitalize'
+
 export default {
   name: "team",
   data() {
     return {
       teams: [
         {
-          name: "Aurore",
+          name: "aurore",
           mail: "aurore@google.com",
           photo: "https://picsum.photos/id/866/200/300",
           thumbs: "https://picsum.photos/id/215/200/300",
@@ -47,7 +49,7 @@ export default {
           hastags: ["test", "ok", "vuejs"]
         },
         {
-          name: "Richard",
+          name: "richard",
           mail: "richard@google.com",
           photo: "https://picsum.photos/id/869/200/300",
           thumbs: "https://picsum.photos/id/214/200/300",
@@ -56,7 +58,7 @@ export default {
           hastags: ["test", "react", "angular"]
         },
         {
-          name: "George",
+          name: "george",
           mail: "george@google.com",
           photo: "https://picsum.photos/id/868/200/300",
           thumbs: "https://picsum.photos/id/212/200/300",
@@ -66,7 +68,10 @@ export default {
         }
       ]
     };
-  }
+  },
+  filters: {
+    cap: Capitalize,
+  },
 };
 </script>
 <style lang="scss">
