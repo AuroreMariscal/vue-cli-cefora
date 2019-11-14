@@ -25,7 +25,7 @@
            #{{ hastag }}
           </a>
           <br />
-          <span class="salary">Salary : {{ person.salary | price}} €</span>
+          <span class="salary">Salary : {{ person.salary | price(2, '€') }} </span>
           <br />
           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
         </div>

@@ -1,6 +1,6 @@
-export default (value) => {
+export default (value, float, device = '€') => {
     if (!value) return 'undefined'
-    var float = parseFloat(value)
-    if (!float == 'Nan') return 'undefined'
-    return float.toFixed(2)
+    var number = parseFloat(value)
+    if (!number == 'Nan') return 'undefined'
+    return number.toFixed(float) + device
 }
